@@ -144,3 +144,38 @@ class BuyerProfile(models.Model):
 
 
 
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+class Profile(models.Model):
+    user = models.OneToOneField(ActiveUser, on_delete=models.CASCADE, related_name='profile')
+    description = models.TextField(blank=True, null=True)
+
+    class Meta:
+        abstract = True
+
+class BreederProfile(Profile):
+    farm_name = models.CharField(max_length=255)
+    farm_location = models.CharField(max_length=255)
+    farm_size = models.IntegerField(help_text="Number of pigs", validators=[MaxValueValidator(10000)])
+
+class VeterinarianProfile(Profile):
+    license_number = models.CharField(max_length=100, unique=True)
+    experience_years = models.IntegerField(validators=[MaxValueValidator(50)])
+    specialization = models.CharField(max_length=255, blank=True, null=True)
+    availability = models.BooleanField(default=True)
+
+class BuyerProfile(Profile):
+    company_name = models.CharField(max_length=255, blank=True, null=True)
+    interest = models.TextField(help_text="What kind of pigs/products they are looking for")
+
+# Automatically create profile based on user role
+@receiver(post_save, sender=ActiveUser)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        if instance.role == 'breeder':
+            BreederProfile.objects.create(user=instance)
+        elif instance.role == 'veterinarian':
+            VeterinarianProfile.objects.create(user=instance)
+        elif instance.role == 'buyer':
+            BuyerProfile.objects.create(user=instance)
