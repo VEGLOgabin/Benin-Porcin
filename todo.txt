@@ -1,0 +1,105 @@
+# ✅ **Backend (Django + Django REST Framework)**  
+
+### **1. Project Setup**  
+- [ ] Install Django & Django REST Framework  
+- [ ] Create Django project (`benin_porcin_connect`)  
+- [ ] Create Django apps (`users`, `chatbot`, `consultations`, `marketplace`, `blog`, `payments`)  
+- [ ] Configure settings (CORS, authentication, database, REST framework)  
+
+### **2. User Management (Profiles)**  
+- [ ] Define `User` model with roles (`Breeder`, `Veterinarian`, `Buyer`)  
+- [ ] Create serializers for user registration & profile management  
+- [ ] Implement authentication (JWT using `djangorestframework-simplejwt`)  
+- [ ] API endpoints: Register, Login, Profile Update, List Users  
+
+### **3. AI Chatbot**  
+- [ ] Integrate OpenAI/GPT API (or custom ML model)  
+- [ ] Create a chatbot model to store interactions  
+- [ ] API endpoints: Send message, get chatbot response  
+
+### **4. Remote Veterinary Consultations**  
+- [ ] Define models: `ConsultationRequest`, `ConsultationResponse`  
+- [ ] Implement status workflow (`pending`, `approved`, `completed`)  
+- [ ] API endpoints: Request consultation, accept/reject, chat  
+
+### **5. Marketplace**  
+- [ ] Define `Product` model (pigs, feed, equipment)  
+- [ ] Implement image upload system  
+- [ ] Create API endpoints: List products, Add/Edit/Delete product, Purchase request  
+
+### **6. Orders & Payments**  
+#### **Orders System**  
+- [ ] Create `Order` model (user, product, status, total price)  
+- [ ] Implement order status workflow (`pending`, `paid`, `shipped`, `completed`, `canceled`)  
+- [ ] API endpoints: Place order, View orders, Update order status  
+
+#### **Payment Integration**  
+- [ ] Set up payment model (transaction ID, amount, status)  
+- [ ] Integrate Stripe/Flutterwave/Paystack API  
+- [ ] Handle payment webhooks for confirmation  
+- [ ] API endpoints: Initiate payment, Verify payment status  
+
+### **7. Blog & Knowledge Sharing**  
+- [ ] Define `BlogPost` model (title, content, author, tags)  
+- [ ] API endpoints: List, Create, Edit, Delete blog posts  
+- [ ] Implement comments system  
+
+### **8. Notifications & Real-time Updates**  
+- [ ] Implement WebSockets (Django Channels) for real-time updates  
+- [ ] Notifications for new messages, consultation updates, new blog posts  
+
+### **9. Deployment & Security**  
+- [ ] Set up PostgreSQL for production  
+- [ ] Configure CORS & authentication properly  
+- [ ] Deploy backend on Render/VPS  
+
+---
+
+# 🎨 **Frontend (Vue 3 + Bulma)**  
+
+### **1. Project Setup**  
+- [ ] Install Vue 3 & configure Vite  
+- [ ] Install Vue Router, Vuex (Pinia), Axios, and Bulma  
+- [ ] Set up project structure (`components/`, `views/`, `store/`)  
+
+### **2. Authentication & User Management**  
+- [ ] Implement Vuex store for user authentication  
+- [ ] Create login & registration pages  
+- [ ] Profile management (edit profile, change password)  
+
+### **3. AI Chatbot UI**  
+- [ ] Create chatbot component with real-time responses  
+- [ ] Implement chat bubbles & message history  
+
+### **4. Veterinary Consultations**  
+- [ ] Create consultation request form  
+- [ ] Display pending/approved consultations  
+- [ ] Implement real-time messaging for consultations  
+
+### **5. Marketplace UI**  
+- [ ] Design product listing page  
+- [ ] Implement product details page  
+- [ ] Create a form for adding/editing products  
+
+### **6. Orders & Payments UI**  
+#### **Orders System**  
+- [ ] Create order confirmation page  
+- [ ] Implement order history & tracking  
+
+#### **Payment Integration**  
+- [ ] Create checkout page  
+- [ ] Integrate payment gateway (Stripe/Flutterwave/Paystack)  
+- [ ] Show order confirmation after payment success  
+
+### **7. Blog & Community**  
+- [ ] Create blog listing page  
+- [ ] Implement blog post details with comments  
+- [ ] Add functionality to post new blogs  
+
+### **8. Notifications & Real-time Updates**  
+- [ ] Integrate WebSockets for real-time notifications  
+- [ ] Display live alerts for new messages, consultation updates  
+
+### **9. Deployment**  
+- [ ] Build Vue project (`npm run build`)  
+- [ ] Deploy frontend on Netlify/Vercel  
