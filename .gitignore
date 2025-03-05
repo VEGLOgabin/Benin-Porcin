@@ -1,7 +1,4 @@
-# Ignore the virtual environment directory
 env/
-
-# Other common ignores
 __pycache__/
 *.pyc
 *.pyo
